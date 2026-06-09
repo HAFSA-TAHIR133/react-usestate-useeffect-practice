@@ -1,0 +1,24 @@
+.product-items-list{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+}
+.product-items {
+  text-align: center;
+}
+.dark{
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+}
+.light{
+  background-color: white;
+  color: black;
+  min-height: 100vh;
+}
+.add-student input{
+  margin-left: 10px;
+}
+.add-student button{
+  margin-left: 10px;
+}
