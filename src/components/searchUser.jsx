@@ -35,6 +35,7 @@ function SearchUser() {
 
   return (
     <div style={{ padding: "20px" }}>
+      <h1>Enter user name you want to search</h1>
 
       <input
         type="text"
@@ -46,7 +47,7 @@ function SearchUser() {
       <div style={{ marginTop: "20px" }}>
         {filteredUsers.length > 0 ? (
           filteredUsers.map((user) => (
-            <h2 key={user.id}> Match Found: {user.name} at index: {user.id}</h2>
+            <h4 key={user.id}> Match Found: {user.name} at index: {user.id}</h4>
           ))
         ) : (
           search && <p>No matching users found for "{search}"</p>

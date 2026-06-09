@@ -13,7 +13,7 @@ function SearchStudent({studentSearch}){
 
     return (<>
         <div>
-            <p>Enter Student Name you want to search: </p>
+            <h1>Enter Student Name you want to search: </h1>
             <input type="text" placeholder="Enter Name" value={searchUser}
             onChange={(e) => {setSearchUser(e.target.value)}}/> 
             {searchUser &&(

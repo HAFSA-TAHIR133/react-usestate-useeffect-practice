@@ -18,10 +18,10 @@ function SetTheme() {
     }, [darkMode]);
 
     return (
-        <div className={darkMode ? "dark" : "light"}>
+        <div className={darkMode ? "dark" : "light"} style={{display:'flex', alignItems:'center', justifyContent:'center', flexDirection:'column'}}>
 
-            <button
-                onClick={() => setDarkMode(prev => !prev)}
+            <button style={{padding:'10px', borderRadius:'20px', cursor:'pointer'}}
+                onClick={() => setDarkMode(prev => !prev) }
             >
                 Toggle Theme
             </button>
