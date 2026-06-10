@@ -21,16 +21,22 @@ function SearchUser() {
       return;
     }
 
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then((data) => {
-
-        const matches = data.filter((user) =>
-          user.name.toLowerCase().includes(search.toLowerCase())
-        );
-
+    const FetchSearchData = async()=>{
+      try{
+        const FetchUserData = await fetch("https://jsonplaceholder.typicode.com/users");
+        const fetchedData = await FetchUserData.json();
+        const matches = fetchedData.filter((user) =>
+              user.name.toLowerCase().includes(search.toLowerCase()))
         setFilteredUsers(matches);
-      });
+      }
+      catch(error){
+        console.log("Error in fetching the data. ",{error});
+      }
+      
+    }
+  FetchSearchData();
+   
+
   }, [search]); 
 
   return (

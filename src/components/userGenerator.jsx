@@ -10,14 +10,16 @@
 
 import { useEffect,useState } from "react";
 function RandomUserGenerator(){
-    const [user,setUser] = useState("");
-   const fetchData = () => {
-        fetch('https://randomuser.me/api/')
-            .then(res => res.json())
-            .then(data => setUser(data.results[0])); 
-    };
+    const [user,setUser] = useState("")
+    const fetchRandomUserData = async() => {
+        const fetchData = await fetch('https://randomuser.me/api/');
+        const fetchedData = await fetchData.json();
+        setUser(fetchedData.results[0]);
+    }
+    
+
     useEffect(()=>{
-        fetchData();
+        fetchRandomUserData();
         console.log("user generate");
         return ()=>{
             setUser("");
@@ -36,7 +38,7 @@ function RandomUserGenerator(){
                     <img src={user.picture.large} alt="User profile" style={{ borderRadius: "50%" }} />
                     <h3>{user.name.title} {user.name.first} {user.name.last}</h3>
                     <p>{user.email}</p>
-                    <button onClick={fetchData}>Generate New User</button>
+                    <button onClick={fetchRandomUserData}>Generate New User</button>
                 </div>
             )}
                 

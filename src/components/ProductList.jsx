@@ -13,10 +13,18 @@ import { useEffect,useState } from "react";
 function ProductList(){
     const [product,setProduct] =useState([]);
     useEffect(()=>{
-        fetch('https://fakestoreapi.com/products')
-        .then(res => res.json())
-        .then(data=> setProduct(data))
-        console.log("product");
+        const fetchProductData= async ()=>{
+            try{
+                const fetchData = await fetch('https://fakestoreapi.com/products');
+                const fetchedData = await fetchData.json();
+                setProduct(fetchedData);
+            }
+            catch(error){
+                console.log("Error in fetching the product. ",{error});
+            }
+            
+        }
+        fetchProductData();
     },[]);
 
     return(<>
